@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Abhishek:Developer Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;400&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      body {
+        background-color: rgba(0, 0, 33);
+        color: white;
+        font-family: "Poppins", sans-serif;
+      }
+      html{
+        scroll-behavior: smooth;
+      }
+      nav {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        height: 95px;
+        background-color: rgba(18, 18, 62);
+      }
+      nav ul {
+        display: flex;
+        justify-content: center;
+      }
+      nav ul li {
+        list-style: none;
+        margin: 0 23px;
+
+      }
+      nav ul li a {
+        text-decoration: none;
+        color: white;
+      }
+      nav ul li a:hover {
+        color: rgb(153, 153, 226);
+        font-size: 1.01rem;
+      }
+
+      .left {
+        font-size: 2rem;
+      }
+      .first {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+      }
+      .first div {
+        width: 30%;
+      }
+      left {
+        
+        margin: 30px;
+      }
+      .left .btn {
+        padding: 12px;
+        background: #1e2167;
+        color: white;
+        border: 2px solid white;
+        font-size: 20px;
+        cursor: pointer;
+        
+      }
+      .right {
+        display: flex;
+        justify-content: end;
+      }
+      .right img {
+        margin-left: 800px;
+        width: 100%;
+        margin: 50px 0;
+      }
+      .purple {
+        color: blueviolet;
+      }
+      .text-gray {
+        color: gray;
+      }
+
+      .secondsection {
+        max-width: 80vw;
+        margin: auto;
+        height: 80vh;
+      }
+      .secondsection .box {
+        background-color: white;
+        width: 80vw;
+        height: 2px;
+        margin: 56px 0;
+        display: flex;
+      }
+
+      .secondsection .vertical {
+        height: 93px;
+        width: 1px;
+        background-color: white;
+        margin: 0 100px;
+      }
+      .image-top {
+        margin-top: 30px;
+        width: 153px;
+        position: relative;
+        top: -32px;
+        left: -9px;
+      }
+      .vertical-title {
+        position: relative;
+        top: px;
+        margin-left: 20px;
+        width: 150px;
+      }
+      .vertical-desc {
+        margin-top: 30px;
+        position: relative;
+        top: 18px;
+        color: gray;
+        width: 150px;
+        font-size: 15px;
+        line-height: 15px;
+      }
+      footer {
+        background-color: rgba(11, 0, 128, 0.355);
+        height: 233px;
+      }
+      .footer {
+        display: flex;
+        padding: 23px 122px;
+        justify-content: space-evenly;
+      }
+      .footer ul{
+        list-style: none;
+      }
+      .footer-second a{
+        color: white;
+      }
+      .footer-second a:hover{
+        color: blue;
+      }
+      footer .footer-rights{
+        text-align: center;
+        color: gray;
+        padding: 12px 0;
+
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <nav>
+        <div class="left">Abhishek's Portfolio</div>
+        <div class="right"></div>
+        <ul>
+          <li><a href="/">Home></a></li>
+          <li><a href="#experience">About></a></li>
+          <li><a href="/">Projects></a></li>
+          <li><a href="#footer">Contact></a></li>
+        </ul>
+      </nav>
+    </header>
+    <main>
+      <section class="first">
+        <div class="left">
+          Heya! It's Me <span class="purple">Abhishek</span>
+          <div>and I am a Full Stack Web Developer!</div>
+          <a target="_blank" href="https://github.com/AbhishekDutta6458"> 
+            <button class="btn" >Visit Github</button>
+          </a>
+          </div>
+        </div>
+
+        <!-- <div class="container">
+
+            </div> -->
+
+        <div class="right">
+          <img src="pngegg.png" alt="" />
+        </div>
+      </section>
+      <hr />
+      <section class="secondsection" id="experience">
+        <span class="text-gray">What I have done so far</span>
+        <h1>Experiences:</h1>
+        <div class="box">
+          <div class="vertical">
+            <img class="image-top" src="web-developer.svg" alt="" />
+            <div class="vertical-title">
+              <b>Front End Developer:</b>
+            </div>
+            <div class="vertical-desc">
+              Pursuing Masters in Computer Applications and looking forward to
+              leverage my experience building responsive and scalable web apps
+              to solve interesting problems that delight end-users. Throughout
+              my career as a front-end developer, I've emphasized the importance
+              of scalable and well-documented code.
+            </div>
+          </div>
+
+          <div class="vertical">
+            <img class="image-top" src="web-developer.svg" alt="" />
+            <div class="vertical-title">
+              <b>Back End Developer:</b>
+            </div>
+            <div class="vertical-desc">
+              Adaptable back end developer with a strong track record in
+              creating efficient, scalable web applications. Proficient in Java
+              and Spring Boot, with a deep understanding of RESTful APIs and
+              microservices architecture.
+            </div>
+          </div>
+          <div class="vertical">
+            <img class="image-top" src="web-developer.svg" alt="" />
+            <div class="vertical-title">
+              <b>Node.js Developer:</b>
+            </div>
+            <div class="vertical-desc">
+              Node. js Developer with experience in developing and writing
+              server-side web application logic or back-end components in
+              JavaScript and connecting applications with other web services.
+              Developed a server-based Node. js tool for customer support team;
+              tool increased work efficiency by 20%.
+            </div>
+          </div>
+          <div class="vertical">
+            <img class="image-top" src="web-developer.svg" alt="" />
+            <div class="vertical-title">
+              <b>Graphic Designer:</b>
+            </div>
+            <div class="vertical-desc">
+              Motivated graphic designer passionate about web & UX / UI design.
+              Experiences in creating websites designs for made-up businesses as
+              a student.Skilled in Adobe Creative Suite, including Photoshop,
+              InDesign, Illustrator, and more.
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer>
+      <div class="footer" id="footer">
+        <div class="footer-first">
+          <h3>Abhishek's Developer Portfolio</h3>
+        </div>
+        <div class="footer-second">
+          <ul>
+            <li>Abhishek Dutta</li>
+            <li>Masters in Computer Applications</li>
+            <li> <a target="_blank" href="https://www.linkedin.com/in/abhishekdutta835/">LinkedIn</a></li>
+            <li> <a target="_blank" href="https://www.abhishekdutta835@gmail.com">Gmail</a></li>
+            <li>Services</li>
+          </ul>
+        </div>
+        <div class="footer-third"></div>
+        <div class="footer-fourth"></div>
+      </div>
+      <div class="footer-rights">
+        Copyright &#169; www.abhiblogspot.com | All Rights Reserved
+
+      </div>
+    </footer>
+  </body>
+</html>
