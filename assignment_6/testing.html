@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css" />
+
+    <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+  />
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+        <h2>Registration Form</h2>
+        <div class="form-container">
+
+          <form>
+            <div class="input-name">
+              <i class="fa fa-user lock" aria-hidden="true"></i>
+              <input type="text" placeholder="First Name" class="name" />
+              <span>
+                <i class="fa fa-user lock" aria-hidden="true"></i>
+                <input type="text" placeholder="Last Name" class="name" />
+              </span>
+            </div>
+
+            <div class="input-name">
+              <i class="fa fa-envelope email" aria-hidden="true"></i>
+              <input type="email" placeholder="Email" class="text-name" />
+            </div>
+
+            <div class="input-name">
+              <i class="fa fa-lock" aria-hidden="true"></i>
+              <input type="password" placeholder="Password" class="text-name" />
+            </div>
+
+            <div class="input-name">
+              <i class="fa fa-lock" aria-hidden="true"></i>
+              <input
+                type="password"
+                placeholder="Confirm Password"
+                class="text-name"
+              />
+            </div>
+
+            <div class="input-name">
+              <input type="radio" class="radio-button" name="r1" />
+              <label style="margin-right: 30px">Male</label>
+  
+              <input type="radio" class="radio-button" name="r1" />
+              <label>Female</label>
+            </div>
+  
+            <div class="input-name">
+              <i class="fa fa-calendar" aria-hidden="true"></i>
+              <input type="date" placeholder="Date of Birth" class="name" />
+            </div>
+
+            <div class="input-name">
+              <select class="country">
+                <option>Select a Country</option>
+                <option>India</option>
+                <option>Italy</option>
+                <option>United States</option>
+                <option>United Kingdom</option>
+                <option>Sri Lanka</option>
+              </select>
+              <div class="arrow"></div>
+            </div>
+  
+            <div class="input-name">
+              <input type="checkbox" class="check-button" />
+              <label for="check-button" class="check"
+                >I accept the terms and conditions</label
+              >
+            </div>
+
+            <div class="input-name">
+              <input type="Submit" class="button" value="Register" />
+            </div>
+          </form>
+        </div>
+      </div>
+      
+
+  
+
+<script>
+
+
+
+
+  // Function to validate the form on submission
+  function validateForm(event) {
+    event.preventDefault(); // Prevent form submission
+
+    // Validation for First Name and Last Name (both required)
+    
+    const firstNameInput = document.querySelector(
+      'input[placeholder="First Name"]'
+    );
+    const lastNameInput = document.querySelector(
+      'input[placeholder="Last Name"]'
+    );
+    const firstNameValue = firstNameInput.value.trim();
+    const lastNameValue = lastNameInput.value.trim();
+
+    if (firstNameValue === "" || lastNameValue === "") {
+      displayError(firstNameInput, "First and Last Name are required");
+    } else {
+      removeError(firstNameInput);
+      removeError(lastNameInput);
+    }
+
+    // Validation for Email (required and valid format)
+   
+    const emailInput = document.querySelector('input[placeholder="Email"]');
+    const emailValue = emailInput.value.trim();
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    if (emailValue === "") {
+      displayError(emailInput, "Email is required");
+    } else if (!emailRegex.test(emailValue)) {
+      displayError(emailInput, "Invalid email format");
+    } else {
+      removeError(emailInput);
+    }
+
+    // Validation for Password and Confirm Password (both required and matching)
+    
+    const passwordInput = document.querySelector(
+      'input[placeholder="Password"]'
+    );
+    const confirmPasswordInput = document.querySelector(
+      'input[placeholder="Confirm Password"]'
+    );
+    const passwordValue = passwordInput.value;
+    const confirmPasswordValue = confirmPasswordInput.value;
+
+    if (passwordValue === "") {
+      displayError(passwordInput, "Password is required");
+    } else if (passwordValue !== confirmPasswordValue) {
+      displayError(confirmPasswordInput, "Passwords do not match");
+    } else {
+      removeError(passwordInput);
+      removeError(confirmPasswordInput);
+    }
+
+    // Validation for Date of Birth (required and age >= 18)
+
+    const dobInput = document.querySelector(
+      'input[placeholder="Date of Birth"]'
+    );
+
+    const dobValue = new Date(dobInput.value);
+    const minAge = 18;
+    const currentDate = new Date();
+    const age = currentDate.getFullYear() - dobValue.getFullYear();
+
+    if (!dobValue || isNaN(age) || age < minAge) {
+      displayError(dobInput, "You must be at least 18 years old");
+    } else {
+      removeError(dobInput);
+    }
+
+    // Validation for Country (required)
+    const countrySelect = document.querySelector(".country");
+    const countryValue = countrySelect.value;
+
+    if (countryValue === "Select a Country") {
+      displayError(countrySelect, "Please select a country");
+    } else {
+      removeError(countrySelect);
+    }
+
+    // Validation for Terms and Conditions (required)
+    const termsCheckbox = document.querySelector(".check-button");
+
+    if (!termsCheckbox.checked) {
+      displayError(
+        termsCheckbox,
+        "You must accept the terms and conditions"
+      );
+    } else {
+      removeError(termsCheckbox);
+    }
+
+    // If there are no errors, submit the form
+    if (!document.querySelector(".error")) {
+      document.querySelector("form").submit();
+    }
+  }
+
+  // Function to display error messages
+  function displayError(element, message) {
+    removeError(element); // Remove any existing errors
+    const errorElement = document.createElement("div");
+    errorElement.classList.add("error");
+    errorElement.textContent = message;
+    element.parentNode.appendChild(errorElement);
+  }
+
+  // Function to remove error messages
+  function removeError(element) {
+    const error = element.parentNode.querySelector(".error");
+    if (error) {
+      error.remove();
+    }
+  }
+
+  // Event listeners for real-time validation
+  const inputFields = document.querySelectorAll(".text-name");
+  inputFields.forEach((input) => {
+    input.addEventListener("input", function () {
+      if (input.value.trim() === "") {
+        displayError(input, "This field is required");
+      } else {
+        removeError(input);
+      }
+    });
+  });
+
+  // Event listener for password matching
+  const passwordInputs = document.querySelectorAll(
+    'input[type="password"]'
+  );
+  passwordInputs.forEach((input) => {
+    input.addEventListener("input", function () {
+      const passwordInput = document.querySelector(
+        'input[name="password"]'
+      );
+      const confirmPasswordInput = document.querySelector(
+        'input[name="confirm_password"]'
+      );
+      const passwordValue = passwordInput.value;
+      const confirmPasswordValue = confirmPasswordInput.value;
+
+      if (passwordValue !== confirmPasswordValue) {
+        displayError(confirmPasswordInput, "Passwords do not match");
+      } else {
+        removeError(confirmPasswordInput);
+      }
+    });
+  });
+
+  // Event listener for date calculation
+  const dobInput = document.querySelector('input[name="dob"]');
+//   dobInput.addEventListener("input", function () {
+//     const dobValue = new Date(dobInput.value);
+//     const minAge = 18;
+//     const currentDate = new Date();
+//     const age = currentDate.getFullYear() - dobValue.getFullYear();
+
+//     if (isNaN(age) || age < minAge) {
+//       displayError(dobInput, "You must be at least 18 years old");
+//     } else {
+//       removeError(dobInput);
+//     }
+//   });
+
+
+//   Event listener for form submission
+    const submitButton = document.querySelector(".button");
+    console.log(submitButton);
+    submitButton.addEventListener("click", validateForm);
+
+
+
+
+function myFunction() {
+  document.getElementById("demo").innerHTML = "I have changed!";
+}
+    </script>
+</body>
+</html>
